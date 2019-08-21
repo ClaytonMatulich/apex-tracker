@@ -1,0 +1,29 @@
+{
+  "name": "apex-tracker",
+  "version": "1.0.0",
+  "description": "apex legends stat tracker",
+  "author": "Clayton Matulich",
+  "scripts": {
+    "client": "npm run serve --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "nodemon server",
+    "start": "node server"
+  },
+  "main": "server.js",
+  "dependencies": {
+    "concurrently": "^4.1.2",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "morgan": "^1.9.1",
+    "node-fetch": "^2.6.0",
+    "vuetify": "^2.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1",
+    "sass": "^1.17.4",
+    "sass-loader": "^7.1.0",
+    "vue-cli-plugin-vuetify": "^0.6.3",
+    "vuetify-loader": "^1.2.2"
+  },
+  "license": "ISC"
+}
