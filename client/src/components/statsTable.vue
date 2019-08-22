@@ -3,12 +3,21 @@
     <thead>
       <tr>
         <th class="text-left">Stat</th>
+        <th class="text-left">Value</th>
       </tr>
     </thead>
     <tbody>
-      <tr v-for="stat in stats" :key="stat.name">
-        <td>{{ stat.name }}</td>
-        <td>{{ stat.value }}</td>
+      <tr>
+        <td class="text-left">Selected Legend</td>
+        <td class="text-left">{{ profileData.metadata.activeLegendName }}</td>
+      </tr>
+      <tr v-if="profileData.segments[0].stats.level">
+        <td class="text-left">Level</td>
+        <td class="text-left">{{ profileData.segments[0].stats.level.displayValue }}</td>
+      </tr>
+      <tr>
+        <td class="text-left">Damage Done</td>
+        <td class="text-left">{{ profileData.segments[0].stats.damage.displayValue }}</td>
       </tr>
     </tbody>
   </v-simple-table>

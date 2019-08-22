@@ -57,7 +57,7 @@
                     <img :src="profileData.platformInfo.avatarUrl" alt="avatar" />
                   </v-avatar>
                   <div class="headline">{{gamertag}}</div>
-                  <app-stats-table :profiledata="profileData"></app-stats-table>
+                  <app-stats-table :profileData="profileData"></app-stats-table>
                   <v-btn color="#953036" @click="reset" class="ma-5 white--text">Return</v-btn>
                 </div>
               </v-col>
@@ -124,7 +124,7 @@
       }
     },
     mounted() {
-      this.resest();
+      this.reset();
     }
   };
 </script>
