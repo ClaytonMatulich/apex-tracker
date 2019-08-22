@@ -36,6 +36,8 @@
 </template>
 
 <script>
+  import statsTable from "../components/StatsTable.vue";
+
   export default {
     props: ["profileData"]
   };

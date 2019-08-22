@@ -13,6 +13,7 @@
         </v-row>
       </v-col>
 
+      <!-- submission card -->
       <v-col cols="12" v-if="!showProfile">
         <v-row align="center" justify="center" class="text-center">
           <v-card outlined elevation="10" width="500" min-width="300" min-height="325" class="mx-4">
@@ -44,40 +45,16 @@
           </v-card>
         </v-row>
       </v-col>
+      <!-- end submission car -->
 
-      <v-col cols="12" v-if="showProfile">
-        <v-row align="center" justify="center" class="text-center">
-          <v-card outlined elevation="10" width="900" min-width="300" min-height="325">
-            <v-row align="center" justify="center">
-              <v-col class="text-center" xs="12" sm="12" md="6" lg="6" xl="6">
-                <v-row align="center" justify="center">
-                  <v-img
-                    class="text-center ma-5"
-                    max-width="500"
-                    :src="profileData.segments[1].metadata.imageUrl"
-                  ></v-img>
-                </v-row>
-              </v-col>
-              <v-col xs="12" sm="12" md="6" lg="6" xl="6">
-                <div class="text-center ma-5">
-                  <v-avatar size="100" v-if="profileData.platformInfo.avatarUrl">
-                    <img :src="profileData.platformInfo.avatarUrl" alt="avatar" />
-                  </v-avatar>
-
-                  <div
-                    class="headline my-2"
-                  >{{profileData.platformInfo.platformUserHandle.toUpperCase()}}</div>
-                  <v-chip :style="getChipColor()">
-                    <v-icon class="white--text">{{platformIcon}}</v-icon>
-                  </v-chip>
-                  <app-stats-table :profileData="profileData"></app-stats-table>
-                  <v-btn color="#953036" @click="reset" class="ma-5 white--text">Return</v-btn>
-                </div>
-              </v-col>
-            </v-row>
-          </v-card>
-        </v-row>
-      </v-col>
+      <!-- profile card -->
+      <app-profile-card
+        @reset="reset()"
+        :profileData="profileData"
+        :platformIcon="platformIcon"
+        v-if="showProfile"
+      ></app-profile-card>
+      <!-- end profile card -->
     </v-row>
     <v-snackbar v-model="snackbar">{{snackMessage}}</v-snackbar>
   </v-container>
@@ -85,11 +62,13 @@
 
 <script>
   import axios from "axios";
-  import statsTable from "../components/statsTable.vue";
+  import statsTable from "../components/StatsTable.vue";
+  import profileCard from "../components/ProfileCard.vue";
 
   export default {
     components: {
-      "app-stats-table": statsTable
+      "app-stats-table": statsTable,
+      "app-profile-card": profileCard
     },
     data() {
       return {
@@ -129,32 +108,33 @@
         }
       },
       reset() {
+        console.log("reset");
         this.gamertag = "";
         this.platform = "";
         this.profileData = null;
         this.showProfile = false;
         this.loading = false;
-      },
-      getChipColor() {
-        if (this.platform === "xbl") {
-          return {
-            backgroundColor: "#0e7a0d"
-          };
-        } else if (this.platform === "psn") {
-          return {
-            backgroundColor: "#003791"
-          };
-        } else if (this.platform === "origin") {
-          return {
-            backgroundColor: "#f05523"
-          };
-        }
-        // return {
-        //   xbl: this.platform === "xbl",
-        //   psn: this.platform === "psn",
-        //   origin: this.platform === "origin"
-        // };
       }
+      // getChipColor() {
+      //   if (this.platform === "xbl") {
+      //     return {
+      //       backgroundColor: "#0e7a0d"
+      //     };
+      //   } else if (this.platform === "psn") {
+      //     return {
+      //       backgroundColor: "#003791"
+      //     };
+      //   } else if (this.platform === "origin") {
+      //     return {
+      //       backgroundColor: "#f05523"
+      //     };
+      //   }
+      //   // return {
+      //   //   xbl: this.platform === "xbl",
+      //   //   psn: this.platform === "psn",
+      //   //   origin: this.platform === "origin"
+      //   // };
+      // }
     },
     computed: {
       platformIcon() {
