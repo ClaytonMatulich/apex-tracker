@@ -35,7 +35,4 @@ router.get("/:platform/:gamertag", async (req, res) => {
   }
 });
 
-// https://public-api.tracker.gg/v2/overwatch/standard/profile/xbl/mrkillfeedx
-// https://public-api.tracker.gg/v2/overwatch/standard/profile/xbl/mrkillfeedx
-
 module.exports = router;
