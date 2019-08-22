@@ -12,16 +12,23 @@
           ></v-img>
         </v-row>
       </v-col>
+
       <v-col cols="12" v-if="!showProfile">
         <v-row align="center" justify="center" class="text-center">
           <v-card outlined elevation="10" width="500" min-width="300" min-height="325" class="mx-4">
-            <v-form class="ma-10" ref="form" v-model="valid" v-on:submit.prevent="onSubmit">
-              <v-text-field v-model="gamertag" label="Name" required color="#953036"></v-text-field>
+            <v-form class="mx-10 mt-10" ref="form" v-model="valid" v-on:submit.prevent="onSubmit">
+              <v-text-field
+                :rules="[v => !!v || 'Name/id/gamertag is required']"
+                required
+                v-model="gamertag"
+                label="Name/Gamertag/Handle"
+                color="#953036"
+              ></v-text-field>
 
               <v-select
                 :items="platforms"
                 v-model="platform"
-                :rules="[v => !!v || 'Item is required']"
+                :rules="[v => !!v || 'Platform is required']"
                 label="Platform"
                 required
                 color="#953036"
@@ -46,7 +53,7 @@
                 <v-row align="center" justify="center">
                   <v-img
                     class="text-center ma-5"
-                    max-width="400"
+                    max-width="500"
                     :src="profileData.segments[1].metadata.imageUrl"
                   ></v-img>
                 </v-row>
@@ -57,7 +64,9 @@
                     <img :src="profileData.platformInfo.avatarUrl" alt="avatar" />
                   </v-avatar>
 
-                  <div class="headline my-2">{{gamertag}}</div>
+                  <div
+                    class="headline my-2"
+                  >{{profileData.platformInfo.platformUserHandle.toUpperCase()}}</div>
                   <v-chip :style="getChipColor()">
                     <v-icon class="white--text">{{platformIcon}}</v-icon>
                   </v-chip>
@@ -86,7 +95,7 @@
       return {
         snackbar: false,
         snackMessage:
-          "Could not find player. Make sure capitalization is correct",
+          "Could not find player. Make sure spelling and platform are correct",
         gamertag: "",
         platform: "",
         platforms: ["xbl", "psn", "origin"],

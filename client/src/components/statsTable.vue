@@ -8,20 +8,28 @@
     </thead>
     <tbody>
       <tr>
-        <td class="text-left">Selected Legend</td>
+        <td class="text-left subtitle-2">Selected Legend</td>
         <td class="text-left">{{ profileData.metadata.activeLegendName }}</td>
       </tr>
       <tr v-if="profileData.segments[0].stats.level">
-        <td class="text-left">Level</td>
+        <td class="text-left subtitle-2">Level</td>
         <td class="text-left">{{ profileData.segments[0].stats.level.displayValue }}</td>
       </tr>
       <tr v-if="profileData.segments[0].stats.kills">
-        <td class="text-left">Lifetime Kills</td>
+        <td class="text-left subtitle-2">Lifetime Kills</td>
         <td class="text-left">{{ profileData.segments[0].stats.kills.displayValue }}</td>
       </tr>
-      <tr>
-        <td class="text-left">Damage Done</td>
+      <tr v-if="profileData.segments[0].stats.kills">
+        <td class="text-left subtitle-2">Kills Percentile</td>
+        <td class="text-left">{{ profileData.segments[0].stats.kills.percentile }}%</td>
+      </tr>
+      <tr v-if="profileData.segments[0].stats.damage">
+        <td class="text-left subtitle-2">Damage Done</td>
         <td class="text-left">{{ profileData.segments[0].stats.damage.displayValue }}</td>
+      </tr>
+      <tr v-if="profileData.segments[0].stats.damage">
+        <td class="text-left subtitle-2">Damage Percentile</td>
+        <td class="text-left">{{ profileData.segments[0].stats.damage.percentile }}%</td>
       </tr>
     </tbody>
   </v-simple-table>
