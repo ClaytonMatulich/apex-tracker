@@ -53,10 +53,14 @@
               </v-col>
               <v-col xs="12" sm="12" md="6" lg="6" xl="6">
                 <div class="text-center ma-5">
-                  <v-avatar size="100">
+                  <v-avatar size="100" v-if="profileData.platformInfo.avatarUrl">
                     <img :src="profileData.platformInfo.avatarUrl" alt="avatar" />
                   </v-avatar>
-                  <div class="headline">{{gamertag}}</div>
+
+                  <div class="headline my-2">{{gamertag}}</div>
+                  <v-chip :style="getChipColor()">
+                    <v-icon class="white--text">{{platformIcon}}</v-icon>
+                  </v-chip>
                   <app-stats-table :profileData="profileData"></app-stats-table>
                   <v-btn color="#953036" @click="reset" class="ma-5 white--text">Return</v-btn>
                 </div>
@@ -121,6 +125,38 @@
         this.profileData = null;
         this.showProfile = false;
         this.loading = false;
+      },
+      getChipColor() {
+        if (this.platform === "xbl") {
+          return {
+            backgroundColor: "#0e7a0d"
+          };
+        } else if (this.platform === "psn") {
+          return {
+            backgroundColor: "#003791"
+          };
+        } else if (this.platform === "origin") {
+          return {
+            backgroundColor: "#f05523"
+          };
+        }
+        // return {
+        //   xbl: this.platform === "xbl",
+        //   psn: this.platform === "psn",
+        //   origin: this.platform === "origin"
+        // };
+      }
+    },
+    computed: {
+      platformIcon() {
+        if (this.platform === "xbl") {
+          return "mdi-xbox";
+        } else if (this.platform === "psn") {
+          return "mdi-playstation";
+        } else if (this.platform === "origin") {
+          return "mdi-origin";
+        }
+        return "";
       }
     },
     mounted() {

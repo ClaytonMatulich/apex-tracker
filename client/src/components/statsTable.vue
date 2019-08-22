@@ -1,5 +1,5 @@
 <template>
-  <v-simple-table>
+  <v-simple-table class="mx-2">
     <thead>
       <tr>
         <th class="text-left">Stat</th>
@@ -14,6 +14,10 @@
       <tr v-if="profileData.segments[0].stats.level">
         <td class="text-left">Level</td>
         <td class="text-left">{{ profileData.segments[0].stats.level.displayValue }}</td>
+      </tr>
+      <tr v-if="profileData.segments[0].stats.kills">
+        <td class="text-left">Lifetime Kills</td>
+        <td class="text-left">{{ profileData.segments[0].stats.kills.displayValue }}</td>
       </tr>
       <tr>
         <td class="text-left">Damage Done</td>
