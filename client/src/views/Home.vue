@@ -40,15 +40,28 @@
 
       <v-col cols="12" v-if="showProfile">
         <v-row align="center" justify="center" class="text-center">
-          <v-card outlined elevation="10" width="500" min-width="300" min-height="325">
-            <div class="text-center ma-5">
-              <v-avatar size="100">
-                <img :src="profileData.platformInfo.avatarUrl" alt="avatar" />
-              </v-avatar>
-              <div class="headline">{{gamertag}}</div>
-              <app-stats-table></app-stats-table>
-              <v-btn color="#953036" @click="reset" class="ma-5 white--text">Return</v-btn>
-            </div>
+          <v-card outlined elevation="10" width="900" min-width="300" min-height="325">
+            <v-row align="center" justify="center">
+              <v-col class="text-center" xs="12" sm="12" md="6" lg="6" xl="6">
+                <v-row align="center" justify="center">
+                  <v-img
+                    class="text-center ma-5"
+                    max-width="400"
+                    :src="profileData.segments[1].metadata.imageUrl"
+                  ></v-img>
+                </v-row>
+              </v-col>
+              <v-col xs="12" sm="12" md="6" lg="6" xl="6">
+                <div class="text-center ma-5">
+                  <v-avatar size="100">
+                    <img :src="profileData.platformInfo.avatarUrl" alt="avatar" />
+                  </v-avatar>
+                  <div class="headline">{{gamertag}}</div>
+                  <app-stats-table :profiledata="profileData"></app-stats-table>
+                  <v-btn color="#953036" @click="reset" class="ma-5 white--text">Return</v-btn>
+                </div>
+              </v-col>
+            </v-row>
           </v-card>
         </v-row>
       </v-col>
@@ -109,6 +122,9 @@
         this.showProfile = false;
         this.loading = false;
       }
+    },
+    mounted() {
+      this.resest();
     }
   };
 </script>
