@@ -1,0 +1,28 @@
+<template>
+  <v-app-bar flat app color="white">
+    <v-toolbar-title class="headline text-uppercase apex-text">
+      <span>Apex</span>
+      <span class="font-weight-light">Tracker</span>
+    </v-toolbar-title>
+    <v-spacer></v-spacer>
+
+    <router-link to="/">
+      <v-btn text color="#953036" class="mx-5">
+        <span class="subheading apex-text">Search</span>
+      </v-btn>
+    </router-link>
+
+    <router-link to="/about">
+      <v-btn text color="#953036" class="mx-5">
+        <span class="subheading apex-text">About</span>
+      </v-btn>
+    </router-link>
+  </v-app-bar>
+</template>
+
+<script>
+  export default {};
+</script>
+
+<style>
+</style>
