@@ -9,13 +9,13 @@
     <v-spacer></v-spacer>
 
     <router-link to="/">
-      <v-btn text color="#953036" class="mx-5" @click="reset">
+      <v-btn text color="#953036" @click="reset">
         <span class="subheading apex-text">Search</span>
       </v-btn>
     </router-link>
 
     <router-link to="/about">
-      <v-btn text color="#953036" class="mx-5">
+      <v-btn text color="#953036">
         <span class="subheading apex-text">About</span>
       </v-btn>
     </router-link>
