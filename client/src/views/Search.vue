@@ -3,13 +3,7 @@
     <v-row>
       <v-col cols="12">
         <v-row justify="center">
-          <v-img
-            class="mx-4"
-            src="../assets/apex-logo.png"
-            contain
-            max-width="500"
-            max-height="300"
-          ></v-img>
+          <v-img class="mx-4" src="../assets/apex-logo.png" contain max-height="300"></v-img>
         </v-row>
       </v-col>
 
