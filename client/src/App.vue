@@ -3,7 +3,7 @@
     <app-navbar></app-navbar>
 
     <v-content class="apex">
-      <v-container>
+      <v-container fill-height>
         <router-view></router-view>
       </v-container>
     </v-content>

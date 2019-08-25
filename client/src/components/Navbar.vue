@@ -1,8 +1,10 @@
 <template>
   <v-app-bar flat app color="white">
     <v-toolbar-title class="headline text-uppercase apex-text">
-      <span>Apex</span>
-      <span class="font-weight-light">Tracker</span>
+      <router-link to="/">
+        <span class="apex-text">Apex</span>
+        <span class="font-weight-light apex-text">Tracker</span>
+      </router-link>
     </v-toolbar-title>
     <v-spacer></v-spacer>
 
