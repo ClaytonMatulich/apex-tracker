@@ -24,7 +24,7 @@
     },
 
     data: () => ({
-      //
+      showProfile: false
     })
   };
 </script>

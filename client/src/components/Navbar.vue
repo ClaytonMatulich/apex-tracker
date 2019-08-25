@@ -1,15 +1,15 @@
 <template>
   <v-app-bar flat app color="white">
     <v-toolbar-title class="headline text-uppercase apex-text">
-      <router-link to="/">
-        <span class="apex-text">Apex</span>
-        <span class="font-weight-light apex-text">Tracker</span>
+      <router-link @click="reset" to="/">
+        <span @click="reset" class="apex-text">Apex</span>
+        <span @click="reset" class="font-weight-light apex-text">Tracker</span>
       </router-link>
     </v-toolbar-title>
     <v-spacer></v-spacer>
 
     <router-link to="/">
-      <v-btn text color="#953036" class="mx-5">
+      <v-btn text color="#953036" class="mx-5" @click="reset">
         <span class="subheading apex-text">Search</span>
       </v-btn>
     </router-link>
@@ -23,7 +23,14 @@
 </template>
 
 <script>
-  export default {};
+  import { eventBus } from "../main";
+  export default {
+    methods: {
+      reset() {
+        eventBus.showProfile = false;
+      }
+    }
+  };
 </script>
 
 <style>

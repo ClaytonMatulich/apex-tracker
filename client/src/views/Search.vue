@@ -64,6 +64,7 @@
   import axios from "axios";
   import statsTable from "../components/StatsTable.vue";
   import profileCard from "../components/ProfileCard.vue";
+  import { eventBus } from "../main";
 
   export default {
     components: {
@@ -80,7 +81,6 @@
         platforms: ["xbl", "psn", "origin"],
         valid: true,
         profileData: null,
-        showProfile: false,
         loading: false
       };
     },
@@ -104,7 +104,7 @@
         }
         this.loading = false;
         if (this.profileData) {
-          this.showProfile = true;
+          eventBus.showProfile = true;
         }
       },
       reset() {
@@ -112,11 +112,14 @@
         this.gamertag = "";
         this.platform = "";
         this.profileData = null;
-        this.showProfile = false;
+        eventBus.showProfile = false;
         this.loading = false;
       }
     },
     computed: {
+      showProfile() {
+        return eventBus.showProfile;
+      },
       platformIcon() {
         if (this.platform === "xbl") {
           return "mdi-xbox";
