@@ -115,26 +115,6 @@
         this.showProfile = false;
         this.loading = false;
       }
-      // getChipColor() {
-      //   if (this.platform === "xbl") {
-      //     return {
-      //       backgroundColor: "#0e7a0d"
-      //     };
-      //   } else if (this.platform === "psn") {
-      //     return {
-      //       backgroundColor: "#003791"
-      //     };
-      //   } else if (this.platform === "origin") {
-      //     return {
-      //       backgroundColor: "#f05523"
-      //     };
-      //   }
-      //   // return {
-      //   //   xbl: this.platform === "xbl",
-      //   //   psn: this.platform === "psn",
-      //   //   origin: this.platform === "origin"
-      //   // };
-      // }
     },
     computed: {
       platformIcon() {

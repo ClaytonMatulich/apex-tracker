@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar flat app>
+    <v-app-bar flat app color="white">
       <v-toolbar-title class="headline text-uppercase apex-text">
         <span>Apex</span>
         <span class="font-weight-light">Tracker</span>
@@ -12,12 +12,19 @@
         <router-view></router-view>
       </v-container>
     </v-content>
+
+    <app-footer></app-footer>
   </v-app>
 </template>
 
 <script>
+  import Footer from "./components/Footer.vue";
+
   export default {
     name: "App",
+    components: {
+      "app-footer": Footer
+    },
 
     data: () => ({
       //
