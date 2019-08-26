@@ -10,8 +10,6 @@ Check it out : https://my-apex-stats.herokuapp.com/
 
 ![Screenshot](https://github.com/ClaytonMatulich/apex-tracker/blob/master/public/img/apex-tracker-search.png)
 
-![Screenshot](https://github.com/ClaytonMatulich/apex-tracker/blob/master/public/img/apex-tracker-search.png)
-
 ## Project setup
 
 Use the package manager [npm](https://nodejs.org/en/) to build/run Apex Tracker.
